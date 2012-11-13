@@ -8,6 +8,8 @@
     </script>
     <script type="text/javascript">
       var map;
+      var latitude;
+      var longitude;
 	  	function initialize() {
 			var mapOptions = {
 				zoom: 8,
@@ -27,7 +29,9 @@
 			position: location,
 			map: map,
 			title:"Contact Address",
-			draggable: true
+			draggable: true,
+			latitude = position.lat();
+			longitude = position.lng();
 		  });
 		  markersArray.push(marker);
 		}
