@@ -1,0 +1,55 @@
+
+{% extends 'twipymap2/contact/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/usuario2012/Documents/Apptwipymap2/twipymap2/templates/twipymap2/contact/contact_form.html
+{% endblock %}
+
+{% block title %}
+  {% if object %}
+    {% trans "Update Contact" %}
+  {% else %}
+    {% trans "Create a New Contact" %}
+  {% endif %}
+{% endblock %}
+
+{% block header-link %}
+  {% if object %}
+    <a href='{% url twipymap2_contact_update pk=object.name %}'>
+      {% trans "Contact Update" %}
+    </a>
+  {% else %}
+    <a href='{% url twipymap2_contact_create %}'>
+      {% trans "Creating Your New Contact" %}
+    </a>
+  {% endif %}
+{% endblock %}
+
+{% block header-description %}
+  {% if object %}
+    {% trans "Please update and save your changes." %}
+  {% else %}
+    {% trans "Please fill all the information bellow for creating your new contact." %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <form class="control-label" action='{% if object %}{% url twipymap2_contact_update pk=object.pk %}{% else %}{% url twipymap2_contact_create %}{% endif %}' method='post' encoding='utf-8'>
+    <fieldset>   
+      {% csrf_token %}
+		{{form}}
+		<div class='canvas' id="map_canvas" style="width:700px; height:500px"></div>
+      <div class='form-actions'>
+        <button class='btn btn-large btn-success' type='submit'>
+          {% if object %}
+            {% trans "Update" %}
+          {% else %}
+            {% trans "Create" %}
+          {% endif %}
+        </button>
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}

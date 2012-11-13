@@ -1,0 +1,31 @@
+
+
+{% extends 'twipymap2/user/base.html' %}
+
+{% load i18n %}
+
+{% block filename %}
+  /home/usuario2012/Documents/Apptwipymap2/twipymap2/templates/twipymap2/user/user_archive_week.html
+{% endblock %}
+
+{% block title %}
+  {% trans "User Week Archive" %}
+{% endblock %}
+
+{% block header-link %}
+  {% trans "User Week Archive" %}
+{% endblock %}
+
+{% block header-description %}
+  {% trans "A weekly archive page showing all objects in a given week." %}
+{% endblock %}
+
+{% block content %}
+  <h2>
+    {% blocktrans %}
+      Users created during the week beginning on {{ week }}
+    {% endblocktrans %}
+  </h2>
+  {% include 'twipymap2/user/object_table_list.html' %}
+  {% include 'twipymap2/user/pagination.html' %}
+{% endblock %}

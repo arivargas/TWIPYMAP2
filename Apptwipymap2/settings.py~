@@ -151,8 +151,3 @@ LOGGING = {
         },
     }
 }
-
-TWITTER_CONSUMER_KEY = 'wfbMmwh6gHUBEzWqQaqLXw'
-TWITTER_CONSUMER_SECRET = '6lBgqpIXHqjFfcwpubYExRL1DRqnU6DatCF4BtPG6I' 
-LOGIN_URL = '/login/'
-AUTH_PROFILE_MODULE = 'twipymap2.Profile'
